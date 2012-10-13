@@ -7,9 +7,15 @@ gem 'rails', '3.2.8'
 
 gem 'sqlite3'
 gem 'jquery-rails'
+
+
 gem 'simple-rss'
+gem 'rest-client'
+gem 'delayed_job_active_record'
+
 gem 'capistrano'
 gem 'haml'
+
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -15,20 +15,25 @@ ActiveRecord::Schema.define(:version => 20121013024015) do
 
   create_table "feed_items", :force => true do |t|
     t.integer  "feed_id"
-    t.integer  "item_number"
-    t.string   "source_url"
+    t.string   "guid"
+    t.string   "title"
+    t.string   "url"
+    t.string   "content"
     t.string   "image_url"
-    t.integer  "image_width"
-    t.integer  "image_height"
-    t.datetime "date"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.integer  "content_width"
+    t.integer  "content_height"
+    t.datetime "pub_date"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "feeds", :force => true do |t|
-    t.string "name"
-    t.string "rss"
-    t.string "source"
+    t.string   "name"
+    t.string   "rss"
+    t.string   "extractor"
+    t.string   "display_title"
+    t.string   "source_link"
+    t.datetime "last_sync_time"
   end
 
 end
