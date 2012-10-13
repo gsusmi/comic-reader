@@ -1,0 +1,112 @@
+body {
+  background-color: #FFFFFC;
+  color: #A52A2A;
+  font: "Lucida Grande";
+}
+
+a {
+  color: #A52A2A;
+}
+
+#page_container {
+  width: 960px;
+}
+
+.centering_div {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+
+}
+
+#page_header {
+  border-bottom: 1px solid;
+}
+
+#page_header div.title {
+  float: left;
+  font: 32px "Comic Sans MS";
+  width: 50%;
+  display: inline-block;
+  height: 38px;
+}
+
+#page_header div.header_controls {
+  font-size: 24px;
+  position: relative;
+  text-align: right;
+  width: 50%;
+  display: inline-block;
+  height: 38px;
+}
+
+div.header_controls div.date {
+  display: inline-block;
+  bottom: -12px;
+}
+
+.arrow_left {
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 8px 13.9px 8px 0;
+  border-color: transparent #a52a2a transparent transparent;
+  display: inline-block;
+}
+
+.arrow_right {
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 8px 0 8px 13.9px;
+  border-color: transparent transparent transparent #a52a2a;
+}
+
+.comic_container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.comic_wrapper {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid;
+  text-align: center;
+}
+
+.comic_source {
+  float: left;
+  font-size: 14px;
+  width: 50%;
+  display: inline-block;
+  height: 16px;
+  text-align: left;
+}
+
+.comic_date {
+  font-size: 14px;
+  width: 50%;
+  display: inline-block;
+  height: 16px;
+  text-align: right;
+}
+
+#page_footer {
+  margin-top: 20px;
+  border-top: 1px solid;
+  font-size: 16px;
+}
+
+#page_footer div.title {
+  float: left;
+  width: 50%;
+  display: inline-block;
+  height: 30px;
+}
+
+#page_footer div.date {
+  text-align: right;
+  width: 50%;
+  display: inline-block;
+  height: 30px;
+}
