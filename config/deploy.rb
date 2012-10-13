@@ -86,10 +86,17 @@ namespace :deploy do
   task :create_db, :roles => :app do
     run "bash #{shared_path}/config/database-create.sh"
   end
+
+  desc "seed database"
+  task :seed do
+    run "cd #{current_path}; RAILS_ENV=production bundle exec rake db:seed"
+  end
 end
 
 after "deploy:stop",    "delayed_job:stop"
 after "deploy:start",   "delayed_job:start"
+after "deploy:restart",   "deploy:migrate"
+after "deploy:restart",   "deploy:seed"
 after "deploy:restart", "delayed_job:restart"
 
 # Restart Passenger
