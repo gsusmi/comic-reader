@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'jquery-rails'
 gem 'simple-rss'
 gem 'capistrano'
+gem 'haml'
 
 # Gems used only for assets and not required
 # in production environments by default.
