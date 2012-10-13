@@ -1,10 +1,11 @@
 module Sync
   class FeedSyncTask
     include ::Jobs::ScheduledJob
-
-    run_every 5.minutes
+    include ::Logging
+    run_every 10s
 
     def perform(*args)
+      logger.info("Updating feeds")
       FeedUpdateSet.new.each { |feed|
         FeedSync.sync(feed)
       }
