@@ -8,7 +8,7 @@ gem 'rails', '3.2.8'
 gem 'sqlite3'
 gem 'jquery-rails'
 
-
+gem 'yui_reset_rails'
 gem 'simple-rss'
 gem 'rest-client'
 gem 'delayed_job_active_record'

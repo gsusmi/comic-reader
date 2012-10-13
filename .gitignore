@@ -18,4 +18,5 @@
 
 .rvmrc
 
+*.xml
 *.tmp
