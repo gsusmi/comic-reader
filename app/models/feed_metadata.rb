@@ -23,4 +23,8 @@ class FeedMetadata
   def entry_filter
     @entry_filter ||= FeedEntryFilter.filter(@feed['filter'])
   end
+
+  def extractor
+    @extractor ||= Sync::FeedContentExtractor.new(self)
+  end
 end

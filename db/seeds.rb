@@ -11,5 +11,7 @@ require 'yaml'
 feeds = YAML.load_file(File.join(Rails.root, 'config/feeds.yml'))
 
 feeds.each { |feed|
-  Feed.create!(feed.reject { |key, value| key == 'filter' })
+  if !Feed.find_by_name(feed['name'])
+    Feed.create!(feed.reject { |key, value| key == 'filter' })
+  end
 }

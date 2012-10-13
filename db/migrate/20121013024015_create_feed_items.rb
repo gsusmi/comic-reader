@@ -5,7 +5,7 @@ class CreateFeedItems < ActiveRecord::Migration
       t.string     :guid
       t.string     :title
       t.string     :url
-      t.string     :content
+      t.text       :content, :limit => 4096
       t.string     :image_url
       t.integer    :content_width
       t.integer    :content_height

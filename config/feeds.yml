@@ -10,6 +10,10 @@
   filter:
     feedburner_origLink: /page/\d+$
 
+- name: Calvin & Hobbes
+  source_link: http://www.gocomics.com/calvinandhobbes
+  rss: http://feeds.feedburner.com/uclick/calvinandhobbes?format=xml
+
 - name: xkcd
   source_link: http://xkcd.com
   rss: http://xkcd.com/atom.xml
