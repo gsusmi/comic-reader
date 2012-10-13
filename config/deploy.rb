@@ -78,6 +78,16 @@ after 'deploy:update_code' do
   run "cd #{release_path}; RAILS_ENV=production bundle exec rake assets:precompile"
 end
 
+namespace :deploy do
+  task :drop_db, :roles => :app do
+    run "bash #{shared_path}/config/database-drop.sh"
+  end
+
+  task :create_db, :roles => :app do
+    run "bash #{shared_path}/config/database-create.sh"
+  end
+end
+
 after "deploy:stop",    "delayed_job:stop"
 after "deploy:start",   "delayed_job:start"
 after "deploy:restart", "delayed_job:restart"
