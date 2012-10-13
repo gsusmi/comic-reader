@@ -1,4 +1,5 @@
 require 'bundler/capistrano'
+require "delayed/recipes"
 
 # This capistrano deployment recipe is made to work with the optional
 # StackScript provided to all Rails Rumble teams in their Linode dashboard.
@@ -66,6 +67,7 @@ set :branch,     "master"
 # Roles
 role :app, LINODE_SERVER_HOSTNAME
 role :db,  LINODE_SERVER_HOSTNAME, :primary => true
+role :delayed_job, LINODE_SERVER_HOSTNAME
 
 # Add Configuration Files & Compile Assets
 after 'deploy:update_code' do
@@ -75,6 +77,10 @@ after 'deploy:update_code' do
   # Compile Assets
   run "cd #{release_path}; RAILS_ENV=production bundle exec rake assets:precompile"
 end
+
+after "deploy:stop",    "delayed_job:stop"
+after "deploy:start",   "delayed_job:start"
+after "deploy:restart", "delayed_job:restart"
 
 # Restart Passenger
 deploy.task :restart, :roles => :app do
