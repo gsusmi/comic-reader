@@ -5,6 +5,8 @@
 
 - name: Looking for Group
   rss: http://feeds.feedburner.com/LookingForGroup?format=xml
+  filter:
+    feedburner_origLink: /page/\d+$
 
 - name: xkcd
   rss: http://xkcd.com/atom.xml

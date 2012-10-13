@@ -1,6 +1,6 @@
 module Sync
   class FeedSyncTask
-    def self.run
+    def perform(*args)
       FeedUpdateSet.new.each { |feed|
         FeedSync.sync(feed)
       }

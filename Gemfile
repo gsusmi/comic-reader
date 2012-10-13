@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'simple-rss'
 gem 'rest-client'
 gem 'delayed_job_active_record'
+gem 'daemons'
 
 gem 'capistrano'
 gem 'haml'

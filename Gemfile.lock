@@ -43,6 +43,12 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.3.3)
+    daemons (1.1.9)
+    delayed_job (3.0.3)
+      activesupport (~> 3.0)
+    delayed_job_active_record (0.3.3)
+      activerecord (>= 2.1.0, < 4)
+      delayed_job (~> 3.0)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -99,8 +105,6 @@ GEM
       json (~> 1.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
-    rufus-scheduler (2.0.17)
-      tzinfo (>= 0.3.23)
     sass (3.2.1)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -129,11 +133,12 @@ DEPENDENCIES
   capistrano
   coffee-rails (~> 3.2.1)
   haml
+  daemons
+  delayed_job_active_record
   jquery-rails
   mysql2
   rails (= 3.2.8)
   rest-client
-  rufus-scheduler
   sass-rails (~> 3.2.3)
   simple-rss
   sqlite3

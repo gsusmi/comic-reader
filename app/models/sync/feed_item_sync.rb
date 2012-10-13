@@ -13,7 +13,11 @@ module Sync
 
     def sync
       @rss.entries.each { |entry|
-        create_item(entry)
+        if @feed.valid_entry?(entry)
+          create_item(entry)
+        else
+          log_invalid_item(entry)
+        end
       }
     end
 
@@ -28,8 +32,12 @@ module Sync
     end
 
     def create_new_item(new_feed_item)
-      logger.info("Creating new feed item: #{new_feed_item.title} for feed #{@feed.name}")
+      logger.info("Creating new feed item: #{new_feed_item.title} for feed #{@feed}")
       new_feed_item.save!
+    end
+
+    def log_invalid_item(entry)
+      logger.info("Ignoring entry: #{entry.title}, invalid for feed #{@feed}")
     end
   end
 end
