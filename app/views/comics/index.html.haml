@@ -1,8 +1,7 @@
-#comics_display
-  - @feeds.find_all { |f| !f.empty? }.each do |feed|
-    .comic
-      .meta
-        %h1.title
-          %a{href: feed.source_link, target: '_blank'}= feed.display_title
-        .date= feed.current.pub_date
-      .content!= feed.current.content
+- @feeds.find_all { |f| !f.empty? }.each do |feed|
+  .comic
+    .meta
+      %h1.title
+        %a{href: feed.source_link, target: '_blank'}= feed.display_title
+      .date= feed.current.pub_date
+    .content!= feed.current.content
