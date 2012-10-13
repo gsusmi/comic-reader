@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require 'yaml'
+
+feeds = YAML.load_file(File.join(Rails.root, 'config/feeds.yml'))
+
+feeds.each { |feed|
+  Feed.create!(feed)
+}

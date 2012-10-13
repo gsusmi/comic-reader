@@ -1,0 +1,10 @@
+# rss: may be RSS/Atom
+
+- name: Dilbert
+  rss: http://feed.dilbert.com/dilbert/daily_strip?format=xml
+
+- name: Looking for Group
+  rss: http://feeds.feedburner.com/LookingForGroup?format=xml
+
+- name: xkcd
+  rss: http://xkcd.com/atom.xml
