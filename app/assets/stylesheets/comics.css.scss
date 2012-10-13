@@ -1,8 +1,10 @@
-$title-font: 'Montserrat Subrayada';
+$title-font: 'Tillium Web';
+$background-page-color: #f1e9d2;
 
 body {
   background-color: #FFFFFC;
   color: #A52A2A;
+  background-color: $background-page-color;
   font: "Lucida Grande";
 }
 
@@ -33,10 +35,7 @@ a {
 }
 
 #page_header div.title {
-  // float: left;
-  font: 32px $title-font;
-  // width: 50%;
-  // display: inline-block;
+  font: 32px $title-font, sans-serif;
   height: 38px;
 }
 
@@ -78,9 +77,14 @@ div.header_controls div.date {
 
 .comic_wrapper {
   display: inline-block;
-  padding: 10px;
-  border: 1px solid;
   text-align: center;
+  background-color: white;
+  -moz-box-shadow: inset 0 0 5px 5px #888;
+  -webkit-box-shadow: inset 0 0 5px 5px#888;
+  box-shadow: 0 0 5px 5px #888;
+
+  border: 20px solid white;
+  border-radius: 1em;
 }
 
 .comic_source {
