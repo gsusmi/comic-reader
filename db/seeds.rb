@@ -11,5 +11,6 @@ require 'yaml'
 feeds = YAML.load_file(File.join(Rails.root, 'config/feeds.yml'))
 
 feeds.each { |feed|
-  Feed.create!(feed)
+
+  Feed.create!(name: feed['name'], rss: feed['rss'])
 }
