@@ -1,12 +1,15 @@
 # rss: may be RSS/Atom
 
 - name: Dilbert
+  source_link: http://dilbert.com
   rss: http://feed.dilbert.com/dilbert/daily_strip?format=xml
 
 - name: Looking for Group
+  source_link: http://www.lfgcomic.com/
   rss: http://feeds.feedburner.com/LookingForGroup?format=xml
   filter:
     feedburner_origLink: /page/\d+$
 
 - name: xkcd
+  source_link: http://xkcd.com
   rss: http://xkcd.com/atom.xml

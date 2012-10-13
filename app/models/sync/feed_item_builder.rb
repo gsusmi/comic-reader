@@ -1,3 +1,5 @@
+require 'cgi'
+
 module Sync
   class FeedItemBuilder
     def self.build(entry, feed)
@@ -5,7 +7,7 @@ module Sync
       item.feed     = feed
       item.title    = encode(entry.title)
       item.url      = entry.feedburner_origLink || entry.link
-      item.content  = encode(entry.description)
+      item.content  = FeedContentExtractor.content(entry)
       item.pub_date = entry.pubDate
       item.guid     = entry.guid || item.url
       item

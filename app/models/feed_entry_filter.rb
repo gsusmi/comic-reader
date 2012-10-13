@@ -1,4 +1,6 @@
 class FeedEntryFilter
+  include Logging
+
   def self.filter(filterdef)
     self.new(filterdef)
   end
@@ -9,7 +11,8 @@ class FeedEntryFilter
 
   def valid?(entry)
     @filter.each { |key, value|
-      if entry[key] !~ Regexp.new(value)
+      if entry[key.to_sym] !~ Regexp.new(value)
+        logger.info("Field #{key} (#{entry[key]}) of #{entry.title} does not match #{value}")
         return false
       end
     }
