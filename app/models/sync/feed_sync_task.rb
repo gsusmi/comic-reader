@@ -2,7 +2,7 @@ module Sync
   class FeedSyncTask
     include ::Jobs::ScheduledJob
     include ::Logging
-    run_every 10s
+    run_every 10.seconds
 
     def perform(*args)
       logger.info("Updating feeds")
