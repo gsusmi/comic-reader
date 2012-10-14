@@ -244,6 +244,11 @@ div.header_controls div.date {
 
         a {
           margin-right: 1em;
+          text-decoration: none;
+        }
+
+        a:hover {
+          text-decoration: underline;
         }
       }
     }
