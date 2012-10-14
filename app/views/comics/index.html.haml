@@ -1,5 +1,8 @@
 - content_for(:settings) do
   = link_to('Settings', '/settings')
+  %a(href="#" id="jump-link")
+    %img(src="/assets/feather.png" width="20" height="20"
+         alt="Jump to" title="Jump to")
 
 - valid_feeds = @feeds.find_all{ |f| !f.empty? }
 

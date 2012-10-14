@@ -2,7 +2,6 @@ window.App ?= {}
 
 App.util =
   get_comic: (direction, html_element) ->
-    console.log('fetching ' + direction + ' comic')
     feed_parent = $(html_element).parents('.comic-wrap')
 
     getId = (attr, prefix) -> attr
@@ -20,7 +19,6 @@ App.util =
         feed_parent.html(data)
 
         setTimeout(->
-          console.error("Reattaching listeners for " + feed_id)
           parent = $('#feed_' + feed_id)
           $(".next", parent).click( (e) ->
             App.util.get_comic('next', this);
@@ -28,7 +26,6 @@ App.util =
           );
 
           $(".previous", parent).click( (e) ->
-            console.error("prev")
             App.util.get_comic('previous', this)
             e.preventDefault();
           );
@@ -41,6 +38,16 @@ App.util =
     $(".left, .right", context).hover(
       -> $(this).animate({opacity: 1})
       -> $(this).animate({opacity: 0.2}))
+    if !context
+      $('#jump-link').on('click', => @activate_jump_nav())
+      $('#jump-link').hover(=> @activate_jump_nav())
+      $('body').on('click', => @hide_jump_nav())
+
+  activate_jump_nav: ->
+    $('#jump-list').fadeIn()
+
+  hide_jump_nav: ->
+    $('#jump-list').fadeOut()
 
   settings_setup: ->
     setFeedsSelected = (selected) ->
