@@ -1,7 +1,14 @@
 module Authentication
 protected
   def authenticate
-    lookup_user || redirect_to(auth_link)
+    lookup_user || auth_redirect
+  end
+
+  def auth_redirect
+    session[:redirect] = request.fullpath unless request.xhr?
+    logger.info("auth_redirect from #{session[:redirect]}")
+    redirect_to(auth_link)
+    false
   end
 
   def auth_link
