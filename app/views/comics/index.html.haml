@@ -1,3 +1,7 @@
+- content_for(:settings) do
+  = link_to('Settings', '/settings')
+
+
 - @feeds.find_all { |f| !f.empty? }.each do |feed|
   = render 'strip', :feed => feed, :item => feed.current
 

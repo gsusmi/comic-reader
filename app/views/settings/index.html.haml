@@ -1,21 +1,27 @@
-%h1 Settings
+- content_for :settings do
+  = link_to('Home', '/')
 
-%p.notes
-  Choose the comics you'd like to view.
+.setting-editor
+  %h1 Settings
 
-%form(action="/settings" method="POST")
-  .comic-list
-    .notes
-      You are subscribed to #{pluralize(@subscribed_feeds.size, 'comic')}.
+  = form_tag('/settings') do
+    .comic-list
+      %p.notes
+        You are currently subscribed
+        to #{pluralize(@subscribed_feeds.size, 'comic')}.
 
-    - for feed in @available_feeds do
-      .feed
-        %input{type: "checkbox",
-               name: "feed",
-               id: "feed_#{feed.id}",
-               checked: @subscribed_feeds.include?(feed.id) && 'checked',
-               value: "#{feed.id}"}
-        %label(for="feed_#{feed.id}")
-          = link_to(feed.display_title || feed.name, feed.source_link)
+      .feeds
+        .heading
+          %h2 Choose the comics you like
+          %button.submit Save
 
-    %input(type="submit" value="Save")
+        - for feed in @available_feeds do
+          .feed
+            = check_box_tag("feed_#{feed.id}", feed.id,
+                            @subscribed_feeds.include?(feed.id),
+                            id: "feed_#{feed.id}")
+            %label(for="feed_#{feed.id}")
+              = feed.display_title || feed.name
+              .link= link_to('link', feed.source_link)
+
+      .status= flash[:message]

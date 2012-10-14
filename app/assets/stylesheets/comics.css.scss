@@ -178,3 +178,73 @@ div.header_controls div.date {
   display: inline-block;
   height: 30px;
 }
+
+.setting-editor {
+  padding-left: 20px;
+
+  h1 {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 0.5em;
+  }
+
+  p {
+    margin-bottom: 1em;
+  }
+
+  .feeds {
+    width: 40em;
+
+    .heading {
+      position: relative;
+      height: 3em;
+
+      h2 {
+        line-height: 2em;
+      }
+
+      button.submit {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+  }
+
+  .feed {
+    line-height: 2em;
+    position: relative;
+    background: #fff;
+    padding: 8px 20px;
+  }
+
+  .feed label {
+    line-height: 2em;
+  }
+
+  .feed input {
+    margin-right: 1em;
+  }
+
+  .feeds .feed:nth-child(even) {
+    background: #faf6f0;
+  }
+  
+  .feed .link {
+    float: right;
+  }
+
+  .submit {
+    border: 1px solid #9a9;
+    border-radius: 1em;
+    background: #fafff5;
+    font-weight: bold;
+    padding: 4px 12px;
+    font-size: 14px;
+  }
+
+  .status {
+    margin-top: 1em;
+    display: inline-block;
+    color: #444;
+  }
+}
