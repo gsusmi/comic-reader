@@ -8,6 +8,10 @@ class Feed < ActiveRecord::Base
     self.all(order: 'name ASC')
   end
 
+  def hashtag
+    self.name.downcase.gsub(/[^a-zA-Z0-9-]+/, ' ').gsub(' ', '-')
+  end
+
   def current
     self.feed_items.first
   end

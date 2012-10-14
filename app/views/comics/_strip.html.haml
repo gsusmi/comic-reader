@@ -1,4 +1,5 @@
 .comic
+  %a{name: feed.hashtag}
   .meta
     %h1.title
       %a{href: feed.source_link, target: '_blank'}= feed.name
@@ -6,13 +7,13 @@
       .strip_title= item.title
     - if item.pub_date
       .date= item.pub_date.strftime('%b %d, %Y')
-  .content{class: item.extra_css}
+  .content{'class' => item.extra_css}
     - if item.previous
       %a.previous{href: '#', 'data-id' => item.id}
         .left
-          .arrow .
+          .arrow
     - if item.next
       %a.next{href: '#', 'data-id' => item.id}
         .right
-          .arrow .
+          .arrow
     != item.content

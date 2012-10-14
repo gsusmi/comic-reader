@@ -8,6 +8,24 @@ html {
   font-size: 12px;
 }
 
+#jump-list {
+  border: 1px solid #988;
+  background: #fffaf6;
+
+  padding: 1em;
+
+  position: fixed;
+  right: 2em;
+  top: 8em;
+
+  box-shadow: 0 2px 4px 2px #666;
+  opacity: 0.8;
+
+  a {
+    color: #000;
+  }
+}
+
 body {
   padding: 1.5em 3em;
   max-width: 1024px;

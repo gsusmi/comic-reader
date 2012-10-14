@@ -1,0 +1,4 @@
+%ul
+  - for feed in feeds do
+    %li
+      %a{href: "##{feed.hashtag}"}= feed.name
