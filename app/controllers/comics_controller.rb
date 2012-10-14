@@ -6,6 +6,6 @@ class ComicsController < ApplicationController
 private
   def feeds_for_user
     # TODO
-    Feed.all
+    Feed.all(order: 'name ASC')
   end
 end
