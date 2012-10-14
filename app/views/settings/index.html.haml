@@ -1,0 +1,27 @@
+- content_for :settings do
+  = link_to('Home', '/')
+
+.setting-editor
+  %h1 Settings
+
+  = form_tag('/settings') do
+    .comic-list
+      %p.notes
+        You are currently subscribed
+        to #{pluralize(@subscribed_feeds.size, 'comic')}.
+
+      .feeds
+        .heading
+          %h2 Choose the comics you like
+          %button.submit Save
+
+        - for feed in @available_feeds do
+          .feed
+            = check_box_tag("feed_#{feed.id}", feed.id,
+                            @subscribed_feeds.include?(feed.id),
+                            id: "feed_#{feed.id}")
+            %label(for="feed_#{feed.id}")
+              = feed.display_title || feed.name
+              .link= link_to('link', feed.source_link)
+
+      .status= flash[:message]

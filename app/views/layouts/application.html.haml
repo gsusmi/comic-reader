@@ -13,7 +13,16 @@
         %h1 Goose Feathers
         .note Your daily goose-powered comic collage
 
-    = yield
+        .settings
+          .user
+            - if @user_or_anon.anon?
+              = link_to(@user_or_anon.name, @auth_link)
+            - else
+              = @user_or_anon.name
+          = yield(:settings)
 
-    .footer
-      .footnote A production of Blue Goose
+      .body
+        = yield
+
+      .footer
+        .footnote A production of Blue Goose

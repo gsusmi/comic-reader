@@ -1,5 +1,3 @@
-require 'cgi'
-
 module Sync
   class FeedItemBuilder
     def self.build(entry, feed)

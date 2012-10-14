@@ -8,12 +8,17 @@ gem 'rails', '3.2.8'
 gem 'sqlite3'
 gem 'jquery-rails'
 
+gem 'pry'
 gem 'yui_reset_rails'
 gem 'simple-rss'
 gem 'rest-client'
 gem 'nokogiri'
 gem 'delayed_job_active_record'
 gem 'daemons'
+
+gem 'ruby-openid'
+gem 'omniauth'
+gem 'omniauth-openid'
 
 gem 'capistrano'
 gem 'haml'
