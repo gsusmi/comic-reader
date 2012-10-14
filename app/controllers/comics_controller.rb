@@ -6,7 +6,7 @@ class ComicsController < ApplicationController
   def strip
     params.inspect
     @feed = strip_feed()
-    @feed_item = strip_feed_item()
+    @feed_item = strip_feed_item(@feed)
     render :layout => false
   end
 
@@ -19,9 +19,10 @@ private
     Feed.find(params[:feed_id])
   end
 
-  def strip_feed_item()
-    feed_id = params[:feed_id]
+  def strip_feed_item(feed)
     strip_id = params[:strip_id]
-    params[:direction] == 'next' ? FeedItem.next(feed_id, strip_id) : FeedItem.previous(feed_id, strip_id)
+    feed_item = feed.feed_items.where("id = ? ", strip_id).first
+
+    params[:direction] == 'next' ? feed_item.next : feed_item.previous
   end
 end

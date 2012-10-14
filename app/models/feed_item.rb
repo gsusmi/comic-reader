@@ -1,12 +1,12 @@
 class FeedItem < ActiveRecord::Base
   belongs_to :feed
 
-  def self.next(feed_id, item_id)
-    FeedItem.where("feed_id = #{feed_id} and id > #{item_id}").order(:id).first
+  def next
+    FeedItem.where("feed_id = ? and id > ?", self.feed_id, self.id).order(:id).first
   end
 
-  def self.previous(feed_id, item_id)
-    FeedItem.where("feed_id = #{feed_id} and id < #{item_id}").order(:id).last
+  def previous
+    FeedItem.where("feed_id = ? and id < ?", self.feed_id, self.id).order(:id).last
   end
 
   def to_s

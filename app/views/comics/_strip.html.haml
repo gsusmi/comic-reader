@@ -12,5 +12,7 @@
           .strip_title= item.title
       .content
         != item.content
-        %a.previous.nav{href: '#', id: item.id, }
-        %a.next.nav{href: '#', id: item.id, }
+        - if item.previous
+          %a.previous.nav{href: '#', id: item.id, }
+        - if item.next
+          %a.next.nav{href: '#', id: item.id, }
