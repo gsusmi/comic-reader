@@ -13,12 +13,14 @@
 
 :javascript
   $(function() {
-    $(".next").click(function() {
+    $(".next").click(function(e) {
       App.util.get_comic('next', this);
+      e.preventDefault();
     });
 
-    $(".previous").click(function() {
-      App.util.get_comic('previous', this)
+    $(".previous").click(function(e) {
+      App.util.get_comic('previous', this);
+      e.preventDefault();
     });
 
     App.util.setup_nav();
