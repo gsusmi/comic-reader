@@ -4,6 +4,12 @@
 - @feeds.find_all { |f| !f.empty? }.each do |feed|
   = render 'strip', :feed => feed, :item => feed.current
 
+- if @feeds.empty?
+  %h1 Oh no!
+  You do not have any feeds selected. Go to
+  = link_to('Settings', '/settings')
+  to select feeds to unlock your goose-powered awesomeness.
+
 :javascript
   $(function() {
     $(".next").click(function() {
