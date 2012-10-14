@@ -10,6 +10,8 @@ html {
 
 body {
   padding: 1.5em 3em;
+  max-width: 1024px;
+  background: url(feather.png) 5px 5px no-repeat;
 }
 
 h1 {
@@ -42,10 +44,20 @@ a {
   width: 90%;
 }
 
-.header h1 {
-  font: 32px $title-font, sans-serif;
+.header {
   border-bottom: 1px solid;
-  height: 38px;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  padding-left: 15px;
+  font: 28px $title-font, sans-serif;
+}
+
+.header .note {
+  padding-left: 15px;
+  color: #aaa;
+  font-size: 12px;
 }
 
 #page_header div.header_controls {
@@ -106,6 +118,13 @@ div.header_controls div.date {
     border-bottom: 1px solid #afada3;
   }
 
+  .meta:after {
+    content: ".";
+    height: 0;
+    visibility: hidden;
+    clear: both;
+  }
+
   .title {
     float: left;
     font-size: 14px;
@@ -118,12 +137,15 @@ div.header_controls div.date {
   .content p {
     height: 0;
   }
+
+  .content .feedflare {
+    display: none;
+  }
 }
   
 .date {
   font-size: 14px;
-  width: 50%;
-  display: inline-block;
+  float: right;
   height: 16px;
   text-align: right;
 }
@@ -131,14 +153,9 @@ div.header_controls div.date {
 .footer {
   margin-top: 20px;
   border-top: 1px solid;
-  font-size: 16px;
-}
-
-.footer .footnote {
-  float: left;
-  width: 50%;
-  display: inline-block;
-  height: 30px;
+  padding-top: 1em;
+  font-size: 12px;
+  text-align: right;
 }
 
 #page_footer div.date {

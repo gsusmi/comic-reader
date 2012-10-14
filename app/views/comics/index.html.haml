@@ -3,7 +3,7 @@
     .comic
       .meta
         %h1.title
-          %a{href: feed.source_link, target: '_blank'}= feed.display_title
+          %a{href: feed.source_link, target: '_blank'}= feed.name
         - if feed.current.pub_date
           .date= feed.current.pub_date.strftime('%b %d, %Y')
       .content!= feed.current.content
