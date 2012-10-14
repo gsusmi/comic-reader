@@ -36,6 +36,16 @@ App.util =
     $(".left, .right", context).hover(
       -> $(this).animate({opacity: 1})
       -> $(this).animate({opacity: 0.2}))
+    if !context
+      $('#jump-link').on('click', => @activate_jump_nav())
+      $('#jump-link').hover(=> @activate_jump_nav())
+      $('body').on('click', => @hide_jump_nav())
+
+  activate_jump_nav: ->
+    $('#jump-list').fadeIn()
+
+  hide_jump_nav: ->
+    $('#jump-list').fadeOut()
 
   settings_setup: ->
     setFeedsSelected = (selected) ->

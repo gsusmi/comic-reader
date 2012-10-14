@@ -1,12 +1,20 @@
 - content_for(:settings) do
   = link_to('Settings', '/settings')
+  %a(href="#" id="jump-link")
+    %img(src="/assets/feather.png" width="20" height="20"
+         alt="Jump to" title="Jump to")
 
-- @feeds.find_all{ |f| !f.empty? }.each do |feed|
+- valid_feeds = @feeds.find_all{ |f| !f.empty? }
+
+#jump-list
+  = render('jump_list', feeds: valid_feeds)
+
+- valid_feeds.each do |feed|
   .comic-wrap{'data-id' => feed.id, :id => "feed_#{feed.id}"}
     = render 'strip', :feed => feed, :item => feed.current
 
 - if @feeds.empty?
-  %h1 Oh no!
+  %h1 Doom! Doom! Doom!
   You do not have any feeds selected. Go to
   = link_to('Settings', '/settings')
   to select feeds to unlock your goose-powered awesomeness.
