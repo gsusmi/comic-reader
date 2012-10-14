@@ -1,18 +1,18 @@
-- if feed.nil? || item.nil?
-  .comic-wrap
-- else
-  .comic-wrap{:id => feed.id}
-    .comic
-      .meta
-        %h1.title
-          %a{href: feed.source_link, target: '_blank'}= feed.name
-        - if item.title
-          .strip_title= item.title
-        - if item.pub_date
-          .date= item.pub_date.strftime('%b %d, %Y')
-      .content{class: item.extra_css}
-        != item.content
-        - if item.previous
-          %a.previous.nav{href: '#', id: item.id, }
-        - if item.next
-          %a.next.nav{href: '#', id: item.id, }
+.comic
+  .meta
+    %h1.title
+      %a{href: feed.source_link, target: '_blank'}= feed.name
+    - if item.title
+      .strip_title= item.title
+    - if item.pub_date
+      .date= item.pub_date.strftime('%b %d, %Y')
+  .content{class: item.extra_css}
+    - if item.previous
+      %a.previous{href: '#', 'data-id' => item.id}
+        .left
+          .arrow .
+    - if item.next
+      %a.next{href: '#', 'data-id' => item.id}
+        .right
+          .arrow .
+    != item.content

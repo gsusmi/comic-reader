@@ -4,35 +4,43 @@ App.util =
   get_comic: (direction, html_element) ->
     console.log('fetching ' + direction + ' comic')
     feed_parent = $(html_element).parents('.comic-wrap')
-    feed_id = feed_parent.attr('id')
-    feed_item_id = html_element.id
 
-    request_url = '/comics/' + feed_id + '/strip/' + feed_item_id
+    getId = (attr, prefix) -> attr
+
+    feed_id = feed_parent.attr('data-id')
+    feed_item_id = $(html_element).attr('data-id')
+
+    request_url = '/comics/' + getId(feed_id, 'feed_') + '/strip/' + getId(feed_item_id, 'feed_item_')
     $.ajax({
       url: request_url,
       data: {direction: direction},
       success: (data)->
         console.log("fetched")
 
-        feed_parent.find('.comic').fadeOut('normal')
         feed_parent.html(data)
-        feed_parent.show('normal', () ->
-          feed_parent.find('.comic').fadeIn('normal')
-        )
-        window.feed_parent = feed_parent
-        $(".next").click( () ->
-          App.util.get_comic('next', this);
-        );
 
-        $(".previous").click( () ->
-          App.util.get_comic('previous', this)
-        );
+        setTimeout(->
+          console.error("Reattaching listeners for " + feed_id)
+          parent = $('#feed_' + feed_id)
+          $(".next", parent).click( (e) ->
+            App.util.get_comic('next', this);
+            e.preventDefault();
+          );
+
+          $(".previous", parent).click( (e) ->
+            console.error("prev")
+            App.util.get_comic('previous', this)
+            e.preventDefault();
+          );
+
+          App.util.setup_nav(parent)
+        0)
     })
 
-  setup_nav: ->
-    $(".content a").hover(
-      -> $(this).animate({opacity: 1}, 'slow')
-      -> $(this).animate({opacity: 0.8}, 'slow'))
+  setup_nav: (context) ->
+    $(".left, .right", context).hover(
+      -> $(this).animate({opacity: 1})
+      -> $(this).animate({opacity: 0.2}))
 
   settings_setup: ->
     setFeedsSelected = (selected) ->

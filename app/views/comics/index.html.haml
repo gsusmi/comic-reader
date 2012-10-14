@@ -1,8 +1,9 @@
 - content_for(:settings) do
   = link_to('Settings', '/settings')
 
-- @feeds.find_all { |f| !f.empty? }.each do |feed|
-  = render 'strip', :feed => feed, :item => feed.current
+- @feeds.find_all{ |f| !f.empty? }.each do |feed|
+  .comic-wrap{'data-id' => feed.id, :id => "feed_#{feed.id}"}
+    = render 'strip', :feed => feed, :item => feed.current
 
 - if @feeds.empty?
   %h1 Oh no!

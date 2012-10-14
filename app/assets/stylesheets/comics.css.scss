@@ -170,30 +170,54 @@ div.header_controls div.date {
     }
 
     .nav {
-      width: 25px;
-      height: 100%;
-      opacity: 0.8;
-    }
-
-    .previous {
+      display: block;
       position: absolute;
       top: 0px;
-      left: -20px;
+      left: 0px;
+      height: 100%;
+      width: 100%;
+    }
+
+    .nav a {
+      display: block;
+    }
+
+    .left {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 25px;
+      opacity: 0.2;
+    }
+
+    .right {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 25px;
+      opacity: 0.2;
+    }
+
+    .left .arrow {
+      position: absolute;
+      top: 40%;
       height: 0px;
       border-style: solid;
-      border-width: 8px 13.9px 8px 0;
-      border-color: transparent brown;
+      border-width: 30px 10.9px 30px 0;
+      border-color: transparent black;
     }
 
-    .next {
+    .right .arrow {
       position: absolute;
-      top: 0px;
-      right: 0px;
+      top: 40%;
+      right: -1px;
       width: 0;
       height: 0px;
       border-style: solid;
-      border-width: 8px 0 8px 13.9px;
-      border-color: transparent brown;
+      border-width: 30px 0 30px 10.9px;
+      border-color: transparent black;
     }
   }
 }
