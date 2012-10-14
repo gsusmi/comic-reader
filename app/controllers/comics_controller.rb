@@ -12,7 +12,7 @@ class ComicsController < ApplicationController
 
 private
   def feeds_for_user
-    Feed.all(order: 'name ASC')
+    user_or_anon.feeds
   end
 
   def strip_feed()

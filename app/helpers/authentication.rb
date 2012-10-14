@@ -40,7 +40,7 @@ protected
 
   def current_user=(user)
     @user = user
-    session[:uid] = @user.uid
+    session[:uid] = @user.uid if @user
   end
 
   def lookup_user
