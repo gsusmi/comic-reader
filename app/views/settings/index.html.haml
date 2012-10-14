@@ -1,0 +1,21 @@
+%h1 Settings
+
+%p.notes
+  Choose the comics you'd like to view.
+
+%form(action="/settings" method="POST")
+  .comic-list
+    .notes
+      You are subscribed to #{pluralize(@subscribed_feeds.size, 'comic')}.
+
+    - for feed in @available_feeds do
+      .feed
+        %input{type: "checkbox",
+               name: "feed",
+               id: "feed_#{feed.id}",
+               checked: @subscribed_feeds.include?(feed.id) && 'checked',
+               value: "#{feed.id}"}
+        %label(for="feed_#{feed.id}")
+          = link_to(feed.display_title || feed.name, feed.source_link)
+
+    %input(type="submit" value="Save")

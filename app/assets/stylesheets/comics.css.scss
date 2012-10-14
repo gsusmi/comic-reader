@@ -14,6 +14,10 @@ body {
   background: url(feather.png) 5px 5px no-repeat;
 }
 
+.page {
+  min-height: 600px;
+}
+
 h1 {
   font-size: 1.5em;
 }
@@ -45,8 +49,16 @@ a {
 }
 
 .header {
+  position: relative;
   border-bottom: 1px solid #ccc;
   margin-bottom: 20px;
+}
+
+.settings {
+  position: absolute;
+  text-align: right;
+  right: 0;
+  top: 0;
 }
 
 .header h1 {

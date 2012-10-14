@@ -13,6 +13,12 @@
         %h1 Goose Feathers
         .note Your daily goose-powered comic collage
 
+        .settings
+          .user
+            - if @user_or_anon.anon?
+              = link_to(@user_or_anon.name, @auth_link)
+          %a(href="/settings") Settings
+
     = yield
 
     .footer

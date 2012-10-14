@@ -1,3 +1,5 @@
+require 'cgi'
+
 module Extract
   class FeedContentExtractor
     def initialize(feed_metadata)

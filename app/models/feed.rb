@@ -2,6 +2,12 @@ class Feed < ActiveRecord::Base
   attr_accessible :name, :rss, :extractor, :display_title, :source_link
   has_many :feed_items, order: 'pub_date DESC, id DESC'
 
+  has_and_belongs_to_many :users
+
+  def self.available_feeds
+    self.all(order: 'name ASC')
+  end
+
   def current
     self.feed_items.first
   end
