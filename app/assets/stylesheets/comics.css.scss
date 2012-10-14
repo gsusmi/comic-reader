@@ -103,15 +103,13 @@ div.header_controls div.date {
   border-color: transparent transparent transparent #a52a2a;
 }
 
-.comic_container {
-  text-align: center;
+.comic-wrap {
   margin-top: 20px;
 }
 
 .comic {
   padding: 10px;
   padding-top: 0;
-  margin: 10px;
   display: inline-block;
   text-align: left;
   background-color: white;
@@ -122,6 +120,7 @@ div.header_controls div.date {
 
 .comic {
   .meta {
+    position: relative;
     padding: 5px 10px 5px 10px;
     margin-left: -10px;
     margin-right: -10px;
@@ -137,24 +136,24 @@ div.header_controls div.date {
     }
   }
 
-  .meta:after {
-    content: ".";
-    height: 0;
-    visibility: hidden;
-    clear: both;
-  }
-
   .title {
-    float: left;
     font-size: 14px;
-    width: 50%;
     display: inline-block;
     height: 16px;
     text-align: left;
   }
 
-  .content p {
-    height: 0;
+  .strip_title {
+    display: inline-block;
+    position: absolute;
+    left: 45%;
+    top: 0.5em;
+  }
+
+  .content.junkbuster {
+    p, table {
+      display: none;
+    }
   }
 
   .content .feedflare {
@@ -200,7 +199,6 @@ div.header_controls div.date {
 }
 
 .date {
-  font-size: 14px;
   float: right;
   height: 16px;
   text-align: right;
@@ -253,6 +251,11 @@ div.header_controls div.date {
 
         a {
           margin-right: 1em;
+          text-decoration: none;
+        }
+
+        a:hover {
+          text-decoration: underline;
         }
       }
     }

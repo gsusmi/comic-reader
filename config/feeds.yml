@@ -3,6 +3,8 @@
 - name: Dilbert
   source_link: http://dilbert.com
   rss: http://feed.dilbert.com/dilbert/daily_strip?format=xml
+  meta:
+    css: junkbuster
 
 - name: Looking for Group
   source_link: http://www.lfgcomic.com/
@@ -27,3 +29,16 @@
   meta:
     image_xpath: "//img/@src"
     image_filter: (?i)comics/images/.*.gif$
+
+- name: Girl Genius
+  source_link: http://www.girlgeniusonline.com/comic.php
+  rss: http://www.girlgeniusonline.com/ggmain.rss
+  meta:
+    image_xpath: "//img/@src"
+    image_filter: (?i)ggmain/strips/.*.jpg
+
+- name: Questionable Content
+  source_link: http://www.questionablecontent.net/
+  rss: http://www.questionablecontent.net/QCRSS.xml
+  meta:
+    css: junkbuster

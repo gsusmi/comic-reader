@@ -12,6 +12,10 @@ class Feed < ActiveRecord::Base
     self.feed_items.first
   end
 
+  def extra_css
+    self.meta.extra_css
+  end
+
   def empty?
     self.feed_items.empty?
   end

@@ -25,7 +25,7 @@
                             @subscribed_feeds.include?(feed.id),
                             id: "feed_#{feed.id}")
             %label(for="feed_#{feed.id}")
-              = feed.display_title || feed.name
+              = feed.name
               .link= link_to('link', feed.source_link)
 
       .status= flash[:message]
