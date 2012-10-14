@@ -1,0 +1,2 @@
+class BadSyncEntryError < SyncError
+end

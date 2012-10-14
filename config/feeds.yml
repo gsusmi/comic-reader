@@ -7,12 +7,15 @@
 - name: Looking for Group
   source_link: http://www.lfgcomic.com/
   rss: http://feeds.feedburner.com/LookingForGroup?format=xml
-  filter:
-    feedburner_origLink: /page/\d+$
+  meta:
+    filter:
+      feedburner_origLink: /page/\d+$
 
 - name: Calvin & Hobbes
   source_link: http://www.gocomics.com/calvinandhobbes
   rss: http://feeds.feedburner.com/uclick/calvinandhobbes?format=xml
+  meta:
+    image_xpath: "//meta[@name='twitter:image']/@content"
 
 - name: xkcd
   source_link: http://xkcd.com

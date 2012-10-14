@@ -20,3 +20,5 @@
 
 *.xml
 *.tmp
+
+*format=xml

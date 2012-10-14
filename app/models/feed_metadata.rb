@@ -1,8 +1,11 @@
 require 'yaml'
+require 'ostruct'
 
 class FeedMetadata
   FEED_CFG = YAML.load_file(File.join(Rails.root, 'config/feeds.yml'))
   FEED_MAP = Hash[ FEED_CFG.map { |f| [f['name'], f] } ]
+
+  attr_reader :meta
 
   def self.feeds
     FEED_CFG
@@ -13,7 +16,8 @@ class FeedMetadata
   end
 
   def initialize(feed)
-    @feed = feed
+    @feed = OpenStruct.new(feed)
+    @meta = OpenStruct.new(@feed.meta || { })
   end
 
   def valid_entry?(entry)
@@ -21,7 +25,7 @@ class FeedMetadata
   end
 
   def entry_filter
-    @entry_filter ||= FeedEntryFilter.filter(@feed['filter'])
+    @entry_filter ||= FeedEntryFilter.filter(@meta.filter)
   end
 
   def extractor
@@ -30,6 +34,7 @@ class FeedMetadata
 
 private
   def extractor_factory
-    self.extractor ? self.extractor.constantize
+    return Extract::WebExtractor if @meta.image_xpath
+    @feed.extractor ? @feed.extractor.constantize : Extract::FeedContentExtractor
   end
 end

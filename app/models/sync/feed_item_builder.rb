@@ -7,9 +7,9 @@ module Sync
       item.feed     = feed
       item.title    = encode(entry.title)
       item.url      = entry.feedburner_origLink || entry.link
-      item.content  = feed.extractor.extract(entry)
       item.pub_date = entry.pubDate || entry.updated
       item.guid     = entry.guid || item.url
+      feed.extractor.extract(entry, item)
       item
     end
 
