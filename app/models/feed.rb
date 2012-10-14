@@ -1,6 +1,6 @@
 class Feed < ActiveRecord::Base
   attr_accessible :name, :rss, :extractor, :display_title, :source_link
-  has_many :feed_items, order: 'pub_date DESC'
+  has_many :feed_items, order: 'pub_date DESC, id DESC'
 
   def current
     self.feed_items.first

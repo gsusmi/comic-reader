@@ -47,6 +47,7 @@ Rcomix::Application.routes.draw do
   #   end
 
   get '/comics' => 'comics#index'
+  get '/comics/:feed_id/strip/:strip_id' => 'comics#strip'
 
   root :to => 'comics#index'
 

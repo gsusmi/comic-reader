@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require cookies
 //= require comics
+//= require utils
 //= require on_load

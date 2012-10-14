@@ -1,9 +1,13 @@
 - @feeds.find_all { |f| !f.empty? }.each do |feed|
-  .comic-wrap
-    .comic
-      .meta
-        %h1.title
-          %a{href: feed.source_link, target: '_blank'}= feed.name
-        - if feed.current.pub_date
-          .date= feed.current.pub_date.strftime('%b %d, %Y')
-      .content!= feed.current.content
+  = render 'strip', :feed => feed, :item => feed.current
+
+:javascript
+  $(function() {
+    $(".next").click(function() {
+      App.util.get_comic('next', this);
+    });
+
+    $(".previous").click(function() {
+      App.util.get_comic('previous', this)
+    });
+  });

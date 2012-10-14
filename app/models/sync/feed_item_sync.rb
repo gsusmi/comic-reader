@@ -15,7 +15,7 @@ module Sync
     end
 
     def sync
-      @rss.entries[0..SYNC_MAX].each { |entry|
+      @rss.entries[0..SYNC_MAX].reverse.each { |entry|
         if @feed.valid_entry?(entry)
           create_item(entry)
         else

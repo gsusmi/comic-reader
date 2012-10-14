@@ -1,0 +1,17 @@
+- if feed.nil? || item.nil?
+  .comic-wrap
+- else
+  .comic-wrap{:id => feed.id}
+    .comic
+      .meta
+        %h1.title
+          %a{href: feed.source_link, target: '_blank'}= feed.name
+        - if item.pub_date
+          .date= item.pub_date.strftime('%b %d, %Y')
+        - if item.title
+          .strip_title= item.title
+      .content!= item.content
+      %a.next{href: '#', id: item.id, }
+        Next
+      %a.previous{href: '#', id: item.id, }
+        Previous
