@@ -19,6 +19,7 @@
 .rvmrc
 
 *.xml
+*.rss
 *.tmp
 
 *format=xml

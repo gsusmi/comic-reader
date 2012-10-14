@@ -20,3 +20,10 @@
 - name: xkcd
   source_link: http://xkcd.com
   rss: http://xkcd.com/atom.xml
+
+- name: The Order of the Stick
+  source_link: http://www.giantitp.com/comics/oots.html
+  rss: http://www.giantitp.com/comics/oots.rss
+  meta:
+    image_xpath: "//img/@src"
+    image_filter: (?i)comics/images/.*.gif$

@@ -9,7 +9,7 @@ module Sync
       item.url      = entry.feedburner_origLink || entry.link
       item.pub_date = entry.pubDate || entry.updated
       item.guid     = entry.guid || item.url
-      feed.extractor.extract(entry, item)
+      Extract::FeedContentExtractor.new(feed.meta).extract(entry, item)
       item
     end
 

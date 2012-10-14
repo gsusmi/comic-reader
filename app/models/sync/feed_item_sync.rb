@@ -2,6 +2,9 @@ module Sync
   class FeedItemSync
     include Logging
 
+    # Maximum number of items to sync in a feed.
+    SYNC_MAX = 20
+
     def self.sync(feed, rss)
       self.new(feed, rss).sync
     end
@@ -12,7 +15,7 @@ module Sync
     end
 
     def sync
-      @rss.entries.each { |entry|
+      @rss.entries[0..SYNC_MAX].each { |entry|
         if @feed.valid_entry?(entry)
           create_item(entry)
         else
@@ -27,12 +30,13 @@ module Sync
       FeedItem.transaction {
         existing_feed_item =
           FeedItem.find_by_guid(new_feed_item.guid)
-        create_new_item(new_feed_item) unless existing_feed_item
+        create_new_item(new_feed_item, entry) unless existing_feed_item
       }
     end
 
-    def create_new_item(new_feed_item)
+    def create_new_item(new_feed_item, entry)
       logger.info("Creating new feed item: #{new_feed_item.title} for feed #{@feed}")
+      @feed.extractor.extract(entry, new_feed_item)
       new_feed_item.save!
     end
 
