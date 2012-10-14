@@ -122,6 +122,7 @@ div.header_controls div.date {
 
 .comic {
   .meta {
+    position: relative;
     padding: 5px 10px 5px 10px;
     margin-left: -10px;
     margin-right: -10px;
@@ -130,20 +131,18 @@ div.header_controls div.date {
     border-bottom: 1px solid #afada3;
   }
 
-  .meta:after {
-    content: ".";
-    height: 0;
-    visibility: hidden;
-    clear: both;
-  }
-
   .title {
-    float: left;
     font-size: 14px;
-    width: 50%;
     display: inline-block;
     height: 16px;
     text-align: left;
+  }
+
+  .strip_title {
+    display: inline-block;
+    position: absolute;
+    left: 45%;
+    top: 0.5em;
   }
 
   .content p {
@@ -193,7 +192,6 @@ div.header_controls div.date {
 }
 
 .date {
-  font-size: 14px;
   float: right;
   height: 16px;
   text-align: right;
