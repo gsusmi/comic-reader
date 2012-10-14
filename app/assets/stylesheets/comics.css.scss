@@ -10,7 +10,7 @@ html {
 
 #jump-link {
   position: fixed;
-  right: 2em;
+  right: 20px;
   top: 8.5em;
 }
 
@@ -22,11 +22,13 @@ html {
   padding: 1em;
 
   position: fixed;
-  right: 2em;
+  right: 37px;
   top: 10em;
 
   box-shadow: 0 2px 4px 2px #666;
   opacity: 0.8;
+
+  z-index: 250;
 
   a {
     color: #000;
