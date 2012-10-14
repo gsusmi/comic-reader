@@ -103,15 +103,13 @@ div.header_controls div.date {
   border-color: transparent transparent transparent #a52a2a;
 }
 
-.comic_container {
-  text-align: center;
+.comic-wrap {
   margin-top: 20px;
 }
 
 .comic {
   padding: 10px;
   padding-top: 0;
-  margin: 10px;
   display: inline-block;
   text-align: left;
   background-color: white;
@@ -145,8 +143,10 @@ div.header_controls div.date {
     top: 0.5em;
   }
 
-  .content p {
-    height: 0;
+  .content.junkbuster {
+    p, table {
+      display: none;
+    }
   }
 
   .content .feedflare {

@@ -20,6 +20,10 @@ class FeedMetadata
     @meta = OpenStruct.new(@feed.meta || { })
   end
 
+  def extra_css
+    @meta.css
+  end
+
   def valid_entry?(entry)
     self.entry_filter.valid?(entry)
   end
