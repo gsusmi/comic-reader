@@ -1,6 +1,6 @@
 class AnonymousUser
   def name
-    'not logged in'
+    'Log in'
   end
 
   def feeds
