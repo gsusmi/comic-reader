@@ -10,8 +10,7 @@
           .date= item.pub_date.strftime('%b %d, %Y')
         - if item.title
           .strip_title= item.title
-      .content!= item.content
-      %a.next{href: '#', id: item.id, }
-        Next
-      %a.previous{href: '#', id: item.id, }
-        Previous
+      .content
+        != item.content
+        %a.previous.nav{href: '#', id: item.id, }
+        %a.next.nav{href: '#', id: item.id, }

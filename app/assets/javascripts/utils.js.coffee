@@ -28,3 +28,8 @@ App.util =
           App.util.get_comic('previous', this)
         );
     })
+
+  setup_nav: ->
+    $(".content a").hover(
+      -> $(this).animate({opacity: 1}, 'slow')
+      -> $(this).animate({opacity: 0.8}, 'slow'))
