@@ -57,3 +57,18 @@
     filter:
       link: /comic/
     image_xpath: "//div[@class='post comic']/img/@src"
+
+- name: Saturday Morning Breakfast Cereal
+  source_link: http://www.smbc-comics.com/
+  rss: http://www.smbc-comics.com/rss.php
+
+- name: Scenes from a Multiverse
+  source_link: http://amultiverse.com/
+  rss: http://feeds.feedburner.com/ScenesFromAMultiverse?format=xml
+
+- name: PvP Online
+  source_link: http://pvponline.com/comic
+  rss: http://pvponline.com/feed
+  meta:
+    image_xpath: "//img/@src"
+    image_filter: img/comic/pvp\d+.jpg
