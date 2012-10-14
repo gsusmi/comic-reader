@@ -238,10 +238,14 @@ div.header_controls div.date {
         line-height: 2em;
       }
 
-      button.submit {
+      .controls {
         position: absolute;
         right: 0;
         top: 0;
+
+        a {
+          margin-right: 1em;
+        }
       }
     }
   }

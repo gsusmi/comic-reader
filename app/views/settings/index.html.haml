@@ -13,7 +13,11 @@
       .feeds
         .heading
           %h2 Choose the comics you like
-          %button.submit Save
+
+          .controls
+            %a(href="#" class="all") all
+            %a(href="#" class="none") none
+            %button.submit Save
 
         - for feed in @available_feeds do
           .feed
@@ -25,3 +29,8 @@
               .link= link_to('link', feed.source_link)
 
       .status= flash[:message]
+
+:javascript
+  $(function() {
+    App.util.settings_setup();
+  });

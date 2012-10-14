@@ -33,3 +33,9 @@ App.util =
     $(".content a").hover(
       -> $(this).animate({opacity: 1}, 'slow')
       -> $(this).animate({opacity: 0.8}, 'slow'))
+
+  settings_setup: ->
+    setFeedsSelected = (selected) ->
+      $('.feed input').prop('checked', selected)
+    $('.controls a.all').on('click', -> setFeedsSelected(true))
+    $('.controls a.none').on('click', -> setFeedsSelected(false))
