@@ -72,3 +72,21 @@
   meta:
     image_xpath: "//img/@src"
     image_filter: img/comic/pvp\d+.jpg
+
+- name: Get Fuzzy
+  source_link: http://www.gocomics.com/getfuzzy
+  rss: http://feeds.feedburner.com/uclick/getfuzzy?format=xml
+  meta:
+    image_xpath: "//meta[@name='twitter:image']/@content"
+
+- name: Garfield
+  source_link: http://www.gocomics.com/garfield
+  rss: http://feeds.feedburner.com/uclick/garfield?format=xml
+  meta:
+    image_xpath: "//meta[@name='twitter:image']/@content"
+
+- name: Heathcliff
+  source_link: http://www.gocomics.com/heathcliff
+  rss: http://feeds.feedburner.com/uclick/heathcliff?format=xml
+  meta:
+    image_xpath: "//meta[@name='twitter:image']/@content"
