@@ -42,3 +42,18 @@
   rss: http://www.questionablecontent.net/QCRSS.xml
   meta:
     css: junkbuster
+
+- name: Goblins
+  source_link: http://goblinscomic.com/
+  rss: http://goblinscomic.com/feed/
+  meta:
+    filter:
+      link: goblinscomic.com/\d+/?$
+
+- name: Penny Arcade
+  source_link: http://www.penny-arcade.com/comic/
+  rss: http://penny-arcade.com/feed
+  meta:
+    filter:
+      link: /comic/
+    image_xpath: "//div[@class='post comic']/img/@src"

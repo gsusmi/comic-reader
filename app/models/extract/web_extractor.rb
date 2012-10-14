@@ -21,7 +21,7 @@ module Extract
     end
 
     def resolve_url(ref, path)
-      URI.join(ref, path)
+      URI.join(ref, path) if ref && path
     end
 
     def extract_image(document)
