@@ -91,6 +91,12 @@ namespace :deploy do
   task :seed do
     run "cd #{current_path}; RAILS_ENV=production bundle exec rake db:seed"
   end
+
+  task :rebuild do
+    deploy.drop_db
+    deploy.create_db
+    deploy.seed
+  end
 end
 
 after "deploy:stop",    "delayed_job:stop"
