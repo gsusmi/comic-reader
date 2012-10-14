@@ -2,7 +2,6 @@ window.App ?= {}
 
 App.util =
   get_comic: (direction, html_element) ->
-    console.log('fetching ' + direction + ' comic')
     feed_parent = $(html_element).parents('.comic-wrap')
 
     getId = (attr, prefix) -> attr
@@ -15,12 +14,9 @@ App.util =
       url: request_url,
       data: {direction: direction},
       success: (data)->
-        console.log("fetched")
-
         feed_parent.html(data)
 
         setTimeout(->
-          console.error("Reattaching listeners for " + feed_id)
           parent = $('#feed_' + feed_id)
           $(".next", parent).click( (e) ->
             App.util.get_comic('next', this);
@@ -28,7 +24,6 @@ App.util =
           );
 
           $(".previous", parent).click( (e) ->
-            console.error("prev")
             App.util.get_comic('previous', this)
             e.preventDefault();
           );
