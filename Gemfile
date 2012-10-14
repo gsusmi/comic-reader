@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'yui_reset_rails'
 gem 'simple-rss'
 gem 'rest-client'
+gem 'nokogiri'
 gem 'delayed_job_active_record'
 gem 'daemons'
 

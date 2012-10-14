@@ -18,6 +18,10 @@ class Feed < ActiveRecord::Base
     @meta ||= FeedMetadata.feed_by_name(self.name)
   end
 
+  def extractor
+    self.meta.extractor
+  end
+
   def to_s
     "Feed[#{name}]"
   end

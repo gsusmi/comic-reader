@@ -1,7 +1,9 @@
 - @feeds.find_all { |f| !f.empty? }.each do |feed|
-  .comic
-    .meta
-      %h1.title
-        %a{href: feed.source_link, target: '_blank'}= feed.display_title
-      .date= feed.current.pub_date
-    .content!= feed.current.content
+  .comic-wrap
+    .comic
+      .meta
+        %h1.title
+          %a{href: feed.source_link, target: '_blank'}= feed.display_title
+        - if feed.current.pub_date
+          .date= feed.current.pub_date.strftime('%b %d, %Y')
+      .content!= feed.current.content

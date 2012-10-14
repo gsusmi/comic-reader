@@ -25,6 +25,11 @@ class FeedMetadata
   end
 
   def extractor
-    @extractor ||= Sync::FeedContentExtractor.new(self)
+    @extractor ||= extractor_factory.new(self)
+  end
+
+private
+  def extractor_factory
+    self.extractor ? self.extractor.constantize
   end
 end

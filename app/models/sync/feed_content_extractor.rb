@@ -1,10 +1,5 @@
 module Sync
   class FeedContentExtractor
-    def self.content(entry, feed)
-      extractor = feed.meta.extractor
-      extractor.extract(entry)
-    end
-
     def initialize(feed_metadata)
       @feed_metadata = feed_metadata
     end
