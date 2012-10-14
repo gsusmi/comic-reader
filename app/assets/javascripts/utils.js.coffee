@@ -28,3 +28,9 @@ App.util =
           App.util.get_comic('previous', this)
         );
     })
+
+  settings_setup: ->
+    setFeedsSelected = (selected) ->
+      $('.feed input').prop('checked', selected)
+    $('.controls a.all').on('click', -> setFeedsSelected(true))
+    $('.controls a.none').on('click', -> setFeedsSelected(false))
