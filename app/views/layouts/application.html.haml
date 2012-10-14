@@ -17,6 +17,8 @@
           .user
             - if @user_or_anon.anon?
               = link_to(@user_or_anon.name, @auth_link)
+            - else
+              = @user_or_anon.name
           %a(href="/settings") Settings
 
     = yield
