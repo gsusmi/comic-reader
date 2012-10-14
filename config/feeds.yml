@@ -42,3 +42,51 @@
   rss: http://www.questionablecontent.net/QCRSS.xml
   meta:
     css: junkbuster
+
+- name: Goblins
+  source_link: http://goblinscomic.com/
+  rss: http://goblinscomic.com/feed/
+  meta:
+    filter:
+      link: goblinscomic.com/\d+/?$
+
+- name: Penny Arcade
+  source_link: http://www.penny-arcade.com/comic/
+  rss: http://penny-arcade.com/feed
+  meta:
+    filter:
+      link: /comic/
+    image_xpath: "//div[@class='post comic']/img/@src"
+
+- name: Saturday Morning Breakfast Cereal
+  source_link: http://www.smbc-comics.com/
+  rss: http://www.smbc-comics.com/rss.php
+
+- name: Scenes from a Multiverse
+  source_link: http://amultiverse.com/
+  rss: http://feeds.feedburner.com/ScenesFromAMultiverse?format=xml
+
+- name: PvP Online
+  source_link: http://pvponline.com/comic
+  rss: http://pvponline.com/feed
+  meta:
+    image_xpath: "//img/@src"
+    image_filter: img/comic/pvp\d+.jpg
+
+- name: Get Fuzzy
+  source_link: http://www.gocomics.com/getfuzzy
+  rss: http://feeds.feedburner.com/uclick/getfuzzy?format=xml
+  meta:
+    image_xpath: "//meta[@name='twitter:image']/@content"
+
+- name: Garfield
+  source_link: http://www.gocomics.com/garfield
+  rss: http://feeds.feedburner.com/uclick/garfield?format=xml
+  meta:
+    image_xpath: "//meta[@name='twitter:image']/@content"
+
+- name: Heathcliff
+  source_link: http://www.gocomics.com/heathcliff
+  rss: http://feeds.feedburner.com/uclick/heathcliff?format=xml
+  meta:
+    image_xpath: "//meta[@name='twitter:image']/@content"
