@@ -16,7 +16,7 @@
         .settings
           .user
             - if @user_or_anon.anon?
-              = link_to(@user_or_anon.name, @auth_link)
+              = link_to(@user_or_anon.name, @authentication_link)
             - else
               = @user_or_anon.name
           = yield(:settings)
